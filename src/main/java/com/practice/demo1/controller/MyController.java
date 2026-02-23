@@ -17,5 +17,10 @@ public class MyController {
         return "admin";
     }
 
+    @GetMapping("/member")
+    public String member() {
+        return "member";
+    }
+
 
 }
