@@ -22,5 +22,10 @@ public class MyController {
         return "member";
     }
 
+    @GetMapping("/error")
+    public String erroePage() {
+        return "error";
+    }
+
 
 }
