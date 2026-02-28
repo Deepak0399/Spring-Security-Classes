@@ -11,11 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class MyService implements UserDetailsService {
-
-    public MyService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     private final UserRepository userRepository;
 
@@ -26,6 +23,8 @@ public class MyService implements UserDetailsService {
             User user = opt.get();
             return new UserDetailsImpl(user);
         }
-        return null;
+        else {
+            throw new UsernameNotFoundException("User Not Found");
+        }
     }
 }
